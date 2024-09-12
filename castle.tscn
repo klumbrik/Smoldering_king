@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ucfktwi03xrs"]
+
+[ext_resource type="Texture2D" uid="uid://eih0lem1nuc8" path="res://Backgrounds/фон1согнем0.png" id="1_awwvf"]
+[ext_resource type="Script" path="res://castle.gd" id="1_shhfe"]
+[ext_resource type="PackedScene" uid="uid://pogetx3ttd83" path="res://king_character.tscn" id="2_mmww7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4m3t"]
+size = Vector2(1960, 37)
+
+[node name="Castle" type="Node2D"]
+script = ExtResource("1_shhfe")
+
+[node name="background1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(559, 313)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_awwvf")
+
+[node name="King_chracter" parent="." instance=ExtResource("2_mmww7")]
+position = Vector2(378, 9)
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(508, 549)
+
+[node name="coll" type="CollisionShape2D" parent="floor"]
+position = Vector2(35, -19)
+shape = SubResource("RectangleShape2D_k4m3t")
